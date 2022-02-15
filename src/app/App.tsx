@@ -1,17 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from 'views/Auth';
-import Home from 'views/Home';
-function App() {
+import { QueryClient, QueryClientProvider } from 'react-query';
+import Routes from 'routers/Routes';
+
+const queryClient = new QueryClient();
+
+const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />}>
-          <Route path="/login" element={<Login />} />
-        </Route>
-      </Routes>
-    </Router>
+    <>
+      <QueryClientProvider client={queryClient}>
+        <Routes />
+      </QueryClientProvider>
+    </>
   );
-}
+};
 
 export default App;

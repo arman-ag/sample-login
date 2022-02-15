@@ -1,9 +1,10 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
 import * as React from 'react';
-import { movieCardTypes } from './Types/CardTypes';
+import { singleUserType } from './type';
 
-const MovieCard = ({ movie }: movieCardTypes) => {
-  console.log('movie', movie);
+const UserCard = ({ user }: singleUserType) => {
+  console.log('user', user);
+
   return (
     <>
       <CardActionArea>
@@ -13,10 +14,10 @@ const MovieCard = ({ movie }: movieCardTypes) => {
             alt="movie cover"
             height="150px"
             width="100px"
-            image={movie?.image}
+            image={user?.avatar}
           />
           <CardContent>
-            <Typography variant="h5">{movie?.title}</Typography>
+            <Typography variant="h5">{user?.first_name}</Typography>
           </CardContent>
         </Card>
       </CardActionArea>
@@ -24,4 +25,4 @@ const MovieCard = ({ movie }: movieCardTypes) => {
   );
 };
 
-export default MovieCard;
+export default UserCard;

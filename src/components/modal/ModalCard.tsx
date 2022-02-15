@@ -1,17 +1,9 @@
-import StarIcon from '@mui/icons-material/Star';
-import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
-import {
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Typography
-} from '@mui/material';
+import { Card, CardActionArea, CardActions, CardContent, CardMedia } from '@mui/material';
 import { Box } from '@mui/system';
+import { singleUserType } from 'components/UserCard/type';
 import * as React from 'react';
-import { modalTypes } from './types/modalTypes';
-const ModalCard = ({ movie }: modalTypes) => {
+const ModalCard = ({ user }: singleUserType) => {
+  console.log('user', user);
   return (
     <>
       <Box
@@ -31,22 +23,22 @@ const ModalCard = ({ movie }: modalTypes) => {
               alt="green iguana"
               height="150px"
               width="100px"
-              image={movie?.image}
+              image={user?.avatar}
             />
             <CardContent>
-              <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Typography variant="h6">{`${movie?.title}   (${movie?.year})`}</Typography>
+              {/* <Box display="flex" justifyContent="space-between" alignItems="center">
+                <Typography variant="h6">{`${user?.title}   (${user?.year})`}</Typography>
                 <Box display="flex" alignItems="center">
                   <ThumbUpOutlinedIcon fontSize="small" style={{ marginRight: 5 }} />
-                  <Typography>{movie?.imDbRating}</Typography>
+                  <Typography>{user?.imDbRating}</Typography>
                 </Box>
               </Box>
-              <Typography>{movie?.crew}</Typography>
+              <Typography>{user?.crew}</Typography>
 
               <Box display="flex" alignItems="center">
                 <StarIcon fontSize="small" style={{ marginRight: 10 }} />
-                <Typography>{movie?.rank}</Typography>
-              </Box>
+                <Typography>{user?.rank}</Typography>
+              </Box> */}
             </CardContent>
             <CardActions></CardActions>
           </Card>
