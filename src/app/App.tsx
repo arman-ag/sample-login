@@ -1,11 +1,16 @@
-import { Button } from '@mui/material';
 import React from 'react';
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from 'views/Auth';
+import Home from 'views/Home';
 function App() {
   return (
-    <>
-      <Button>test</Button>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="/login" element={<Login />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
