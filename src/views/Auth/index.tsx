@@ -1,19 +1,31 @@
 import { Button, Input } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { FC, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { history } from 'routers/history';
 import { api } from 'services/api.service';
 
 const Login: FC = () => {
-  const [formValues, setformValues] = useState({});
+  const [formValues, setFormValues] = useState({});
   const handleInputChange = (value: { email?: string; password?: string }) => {
-    setformValues({ ...formValues, ...value });
+    setFormValues({ ...formValues, ...value });
   };
 
   const handleSubmit = (event: React.FormEvent<EventTarget>) => {
     event.preventDefault();
     api
       .post('https://reqres.in/api/login', formValues)
-      .then((res) => localStorage.setItem('user', res.data.token));
+      .then((res) => {
+        toast('login sucsesfully'),
+          localStorage.setItem('user', res.data.token),
+          setTimeout(() => {
+            history.push('/user-info');
+          }, 5000);
+      })
+      .catch((err) => {
+        toast('user or pass wrong');
+      });
   };
   return (
     <>
@@ -27,6 +39,7 @@ const Login: FC = () => {
           </Button>
         </Box>
       </form>
+      <ToastContainer />
     </>
   );
 };

@@ -2,6 +2,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import {
   AppBar,
   Autocomplete,
+  Button,
   Grid,
   InputAdornment,
   Paper,
@@ -9,7 +10,6 @@ import {
   Toolbar
 } from '@mui/material';
 import * as React from 'react';
-import useStyles from './LayoutStyle';
 const Header = () => {
   const [result, setResult] = React.useState([]);
 
@@ -20,12 +20,17 @@ const Header = () => {
   //     })
   //     .catch((err) => console.log(err));
   // }, []);
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.href = '/';
+  };
 
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
     <>
       <AppBar position="static" style={{ backgroundColor: '#4b6584', marginBottom: 50 }}>
+        <Button onClick={handleLogout}>logout</Button>
         <Toolbar>
           <Grid container justifyContent="center" alignItems="center">
             <Grid item xs={8}>

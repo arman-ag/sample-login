@@ -6,7 +6,7 @@ export const PrivateRoute = ({ Component, ...rest }: any) => (
     {...rest}
     render={(props) =>
       localStorage.getItem('user') ? (
-        (console.log('userin'), (<Component {...props} />))
+        <Component {...props} />
       ) : (
         <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
       )

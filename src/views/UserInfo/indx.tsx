@@ -1,4 +1,6 @@
-import { Button, Container, Grid, Modal } from '@mui/material';
+import { Button, Container, Grid, Modal, Typography } from '@mui/material';
+import { Box } from '@mui/system';
+import { LayoutPrivate } from 'components/Layout';
 import ModalCard from 'components/modal/ModalCard';
 import UserCard from 'components/UserCard';
 import { FC, useState } from 'react';
@@ -68,25 +70,29 @@ const UserInfo: FC = () => {
   };
   return (
     <>
-      {showStatus()}
-      <div className="pagination">
-        <Button
-          onClick={() => {
-            if (!isPreviousData) {
-              setPage((old) => ++old);
-            }
-          }}
-          disabled={isPreviousData}>
-          Next page
-        </Button>
-        <span>{page}</span>
-        <Button
-          onClick={() => {
-            setPage((pre: number) => Math.max(--pre, 1));
-          }}>
-          pervious page
-        </Button>
-      </div>
+      <LayoutPrivate>
+        {showStatus()}
+        <Box mt={10} display={'flex'} justifyContent={'center'} alignItems={'center'}>
+          <Button
+            onClick={() => {
+              if (!isPreviousData) {
+                setPage((old) => ++old);
+              }
+            }}
+            disabled={isPreviousData || page >= 2}>
+            Next page
+          </Button>
+          <Typography variant={'h6'} style={{ margin: '0 40px' }}>
+            {page}
+          </Typography>
+          <Button
+            onClick={() => {
+              setPage((pre: number) => Math.max(--pre, 1));
+            }}>
+            pervious page
+          </Button>
+        </Box>
+      </LayoutPrivate>
     </>
   );
 };
