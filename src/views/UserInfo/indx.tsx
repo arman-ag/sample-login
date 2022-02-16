@@ -13,7 +13,6 @@ const UserInfo: FC = () => {
   const [open, setOpen] = useState(false);
 
   const [choseUser, setChoseUser] = useState<userType>();
-  console.log('choseUser', choseUser);
 
   const handleOpen = (user: userType) => {
     setOpen(true), setChoseUser(user);

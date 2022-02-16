@@ -1,6 +1,18 @@
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import PasswordIcon from '@mui/icons-material/Password';
-import { Button, Card, CardContent, Grid, InputAdornment, TextField } from '@mui/material';
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Button,
+  Card,
+  CardContent,
+  Grid,
+  InputAdornment,
+  TextField,
+  Typography
+} from '@mui/material';
 import { Box } from '@mui/system';
 import React, { FC, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
@@ -23,7 +35,7 @@ const Login: FC = () => {
           localStorage.setItem('user', res.data.token),
           setTimeout(() => {
             history.push('/user-info');
-          }, 5000);
+          }, 4000);
       })
       .catch((err) => {
         toast(err.response.data.error);
@@ -31,6 +43,9 @@ const Login: FC = () => {
   };
   return (
     <>
+      <Box mt={10} display={'flex'} justifyContent={'center'}>
+        <Typography variant={'h4'}>For see user list please login first </Typography>
+      </Box>
       <Grid
         container
         style={{ height: '100Vh' }}
@@ -75,6 +90,22 @@ const Login: FC = () => {
                   </Button>
                 </Box>
               </form>
+              <Accordion style={{ boxShadow: 'none' }}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header">
+                  <Typography>** user pass hint</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>
+                    If you forget your username and password, enter this ;)
+                    <br />
+                    <b> user:eve.holt@reqres.in</b>
+                    <br /> <b>pass:cityslicka</b>
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
             </CardContent>
           </Card>
         </Grid>

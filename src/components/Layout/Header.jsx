@@ -15,12 +15,14 @@ const Header = () => {
   const [result, setResult] = React.useState([]);
 
   // React.useEffect(async () => {
-  //   topMovieList()
+  //   const response = await api.get(`https://reqres.in/api/users?page=${1}`);
+  //   response()
   //     .then((res) => {
-  //       setResult(res.data.items);
+  //       setResult(res.data?.data.data);
   //     })
   //     .catch((err) => console.log(err));
   // }, []);
+
   const handleLogout = () => {
     localStorage.clear();
     window.location.href = '/';
@@ -47,7 +49,7 @@ const Header = () => {
                 <Autocomplete
                   freeSolo
                   disableClearable
-                  options={result?.map((option) => option.title)}
+                  options={result?.map((option) => option.name)}
                   renderInput={(params) => (
                     <TextField
                       placeholder="search..."

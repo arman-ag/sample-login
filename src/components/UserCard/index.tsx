@@ -4,8 +4,6 @@ import * as React from 'react';
 import { singleUserType } from './type';
 
 const UserCard = ({ user }: singleUserType) => {
-  console.log('user', user);
-
   return (
     <>
       <CardActionArea>

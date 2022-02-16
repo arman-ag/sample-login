@@ -13,7 +13,6 @@ import { singleUserType } from 'components/UserCard/type';
 import * as React from 'react';
 
 const ModalCard = ({ user }: singleUserType) => {
-  console.log('user', user);
   return (
     <>
       <Box
