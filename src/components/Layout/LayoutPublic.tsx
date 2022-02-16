@@ -1,3 +1,4 @@
+import { Container } from '@mui/material';
 import { Box } from '@mui/system';
 import Footer from './Footer';
 import PublicHeader from './PublicHeader';
@@ -7,7 +8,9 @@ const LayoutPublic = ({ children }: layout) => {
   return (
     <>
       <PublicHeader />
-      <Box style={{ height: '100vh' }}>{children}</Box>
+      <Box style={{ height: '100vh' }}>
+        <Container>{children}</Container>
+      </Box>
       <Footer />
     </>
   );

@@ -7,7 +7,8 @@ import {
   InputAdornment,
   Paper,
   TextField,
-  Toolbar
+  Toolbar,
+  Typography
 } from '@mui/material';
 import * as React from 'react';
 const Header = () => {
@@ -30,10 +31,18 @@ const Header = () => {
   return (
     <>
       <AppBar position="static" style={{ backgroundColor: '#4b6584', marginBottom: 50 }}>
-        <Button onClick={handleLogout}>logout</Button>
         <Toolbar>
-          <Grid container justifyContent="center" alignItems="center">
-            <Grid item xs={8}>
+          <Grid
+            container
+            alignItems="center"
+            justifyContent="space-between"
+            style={{ margin: '10px 0' }}>
+            <Grid item xs={4} md={2}>
+              <Button style={{ color: '#d1d8e0' }} onClick={handleLogout}>
+                <Typography>logout</Typography>
+              </Button>
+            </Grid>
+            <Grid item md={10} xs={8}>
               <Paper>
                 <Autocomplete
                   freeSolo

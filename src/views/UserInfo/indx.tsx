@@ -41,7 +41,7 @@ const UserInfo: FC = () => {
           </div>
         );
       case 'loading':
-        return <h2>data fetching . plz wait</h2>;
+        return <h2>data fetching . please wait</h2>;
       case 'success':
         return (
           <>
