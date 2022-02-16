@@ -1,7 +1,17 @@
-import { Card, CardActionArea, CardActions, CardContent, CardMedia } from '@mui/material';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import {
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography
+} from '@mui/material';
 import { Box } from '@mui/system';
 import { singleUserType } from 'components/UserCard/type';
 import * as React from 'react';
+
 const ModalCard = ({ user }: singleUserType) => {
   console.log('user', user);
   return (
@@ -13,6 +23,7 @@ const ModalCard = ({ user }: singleUserType) => {
           left: '50%',
           transform: 'translate(-50%, -50%)',
           width: '500px',
+
           bgcolor: 'background.paper',
           p: 4
         }}>
@@ -21,24 +32,19 @@ const ModalCard = ({ user }: singleUserType) => {
             <CardMedia
               component="img"
               alt="green iguana"
-              height="150px"
-              width="100px"
+              height="400px"
+              width="200px"
               image={user?.avatar}
             />
             <CardContent>
-              {/* <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Typography variant="h6">{`${user?.title}   (${user?.year})`}</Typography>
-                <Box display="flex" alignItems="center">
-                  <ThumbUpOutlinedIcon fontSize="small" style={{ marginRight: 5 }} />
-                  <Typography>{user?.imDbRating}</Typography>
-                </Box>
+              <Box mt={2} display="flex" alignItems="center">
+                <AccountCircleIcon color="primary" fontSize="large" style={{ marginRight: 10 }} />
+                <Typography variant="h6">{`${user?.first_name}   ${user?.last_name}`}</Typography>
               </Box>
-              <Typography>{user?.crew}</Typography>
-
-              <Box display="flex" alignItems="center">
-                <StarIcon fontSize="small" style={{ marginRight: 10 }} />
-                <Typography>{user?.rank}</Typography>
-              </Box> */}
+              <Box mt={2} display="flex" alignItems="center">
+                <AlternateEmailIcon color="primary" fontSize="large" style={{ marginRight: 10 }} />
+                <Typography>{user?.email}</Typography>
+              </Box>
             </CardContent>
             <CardActions></CardActions>
           </Card>
