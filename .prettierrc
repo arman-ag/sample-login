@@ -5,8 +5,10 @@
   "singleQuote": true,
   "trailingComma": "none",
   "jsxBracketSameLine": true,
-  "error",
+  "prettier/prettier": [
+    "error",
     {
       "endOfLine": "auto"
     }
+  ]
 }
